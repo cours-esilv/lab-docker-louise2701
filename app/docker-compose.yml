@@ -1,10 +1,15 @@
 version: '3'
 services:
-  
+  my-backend:
+    image: louise2701/my-backend-container:latest
+    environment:
+      - CURRENT_ENVIRONMENT=development
+
   my-frontend:
     image: louise2701/my-frontend-container:latest
     environment:
       - WS_BACK_URL=http://backend-service:5000/
+    ports:
       - "8081:80"
 
   td3:
@@ -12,4 +17,4 @@ services:
     environment:
       - CURRENT_ENVIRONMENT=development
     ports:
-      - "8080:8080"
+      - "8082:8080"
