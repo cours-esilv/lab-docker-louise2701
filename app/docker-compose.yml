@@ -4,8 +4,7 @@ services:
   my-frontend:
     image: louise2701/my-frontend-container:latest
     environment:
-      - WS_BACK_URL=http://localhost:8082
-    ports:
+      - WS_BACK_URL=http://backend-service:5000/
       - "8081:80"
 
   td3:
