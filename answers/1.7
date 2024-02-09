@@ -1,1 +1,1 @@
-docker rmi $(docker images --format "{{.ID}}") -f
+docker image ls -q | Select-Object -First 1 | ForEach-Object { docker rmi -f $_ }
