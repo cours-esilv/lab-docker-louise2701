@@ -4,11 +4,13 @@ services:
     image: louise2701/my-backend-container:latest
     environment:
       - CURRENT_ENVIRONMENT=development
+    volumes:
+      - backend-data:/app/data
 
   my-frontend:
     image: louise2701/my-frontend-container:latest
     environment:
-      - WS_BACK_URL=http://backend-service:5000/
+      - WS_BACK_URL=http://backend-service:8080/
     ports:
       - "8081:80"
 
@@ -18,3 +20,8 @@ services:
       - CURRENT_ENVIRONMENT=development
     ports:
       - "8082:8080"
+    volumes:
+      - backend-data:/app/data
+
+volumes:
+  backend-data:
