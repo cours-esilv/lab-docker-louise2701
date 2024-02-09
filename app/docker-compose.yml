@@ -1,15 +1,16 @@
 version: '3'
 services:
+  
+  my-frontend:
+    image: louise2701/my-frontend-container:latest
+    environment:
+      - WS_BACK_URL=http://localhost:8082
+    ports:
+      - "8081:80"
+
   td3:
     image: louise2701/my-backend-container:latest
     environment:
       - CURRENT_ENVIRONMENT=development
     ports:
       - "8080:8080"
-
-  my-frontend:
-    image: louise2701/my-frontend-container:latest
-    environment:
-      - WS_BACK_URL=http://td3:8080
-    ports:
-      - "80:80"
