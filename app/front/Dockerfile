@@ -1,15 +1,12 @@
-
 FROM nginx:alpine
 
+COPY . /usr/share/nginx/html
 
-WORKDIR /app/front
 
+ENV WS_BACK_URL=http://backend-service:5000/
 
-COPY . /app/front
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 
-CMD ["/entrypoint.sh"]
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
