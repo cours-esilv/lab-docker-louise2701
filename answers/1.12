@@ -1,0 +1,1 @@
+docker run -d -p 8082:80 --name new-front-container -e WS_BACK_URL=http://td3:8080 louise2701/my-frontend-container:latest
