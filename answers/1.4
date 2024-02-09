@@ -1,0 +1,5 @@
+
+docker stop my-backend-container
+docker rm my-backend-container
+docker build -t my-backend-image .
+docker run -d --name my-backend-container -p 5000:5000 my-backend-image
