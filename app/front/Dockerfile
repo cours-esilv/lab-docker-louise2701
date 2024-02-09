@@ -1,14 +1,15 @@
 
 FROM nginx:alpine
+
+
 WORKDIR /app/front
+
+
 COPY . /app/front
 
-COPY entrypoint.sh /docker-entrypoint.sh
-
-
-RUN chmod +x /docker-entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 
-
-CMD ["/docker-entrypoint.sh"]
+CMD ["/entrypoint.sh"]
